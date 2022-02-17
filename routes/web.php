@@ -19,10 +19,18 @@ use App\Http\Controllers\ProjectController;
 // });
 
 
-Route::get('/', [ProjectController::class, 'getAllDepartments']);
+Route::get('/', [ProjectController::class, 'getAllDepartments'])->name('Home');
+
+
+Route::post('/showAppointments',[ProjectController::class, 'showAppointments'])->name('showAppointments')->middleware('auth');
+
+Route::post('/bookAppointment',[ProjectController::class, 'bookAppointment'])->name('bookAppointment')->middleware('auth');
+
+Route::get('/myBookings',[ProjectController::class, 'myBookings'])->name('myBookings')->middleware('auth');
+
+Route::get('/cancelBookings',[ProjectController::class, 'cancelBookings'])->name('cancelBookings')->middleware('auth');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-Route::post('/showAppointments',[ProjectController::class, 'showAppointments'])->name('showAppointments');

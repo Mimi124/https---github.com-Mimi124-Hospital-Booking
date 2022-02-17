@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container-lg" style="margin : 0 auto; ">
+    <h2 class="text-center mt-3 mb-3" style ="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color:crimson">Appointments</h2>
 
     <table class="table table-striped table-bordered">
         <thead>
@@ -20,10 +21,15 @@
               <td>{{$appointment->department_name}}</td>
               <td>{{$appointment->appointment_date}}</td>
               @if ($appointment->status)
-              <td>You can take the appointment</td>
+              <td>Date has been Booked</td>
               @else
                 <td>
-                    <form>
+                    <form method="post" action="{{route('bookAppointment')}}">
+                        @csrf
+                        <input type="text" style="display:none"  value="{{$appointment->id}}" name="appointment_id">
+                        <input type="text" style="display:none"  value="{{$appointment->department_name}}" name="department_name">
+                        <input type="text" style="display:none"  value="{{$appointment->appointment_date}}" name="appointment_date">
+                        
                         <input type="submit" value="book" class="btn btn-primary">
                     </form>
                 </td>
