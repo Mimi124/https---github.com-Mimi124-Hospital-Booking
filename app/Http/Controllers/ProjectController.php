@@ -19,6 +19,9 @@ class ProjectController extends Controller
     public function getAllDepartments(Request $request) {
         $departments = Department::all();
         return view('index',['departments' => $departments]);
+
+
+        
     }
 
     public function showAppointments(Request $request) {

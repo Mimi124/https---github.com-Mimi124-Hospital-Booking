@@ -34,3 +34,5 @@ Route::get('/cancelBookings',[ProjectController::class, 'cancelBookings'])->name
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/patients',[ProjectController::class, 'showAllPatients'])->name('showAllPatients');
