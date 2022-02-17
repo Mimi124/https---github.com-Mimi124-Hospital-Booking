@@ -24,3 +24,5 @@ Route::get('/', [ProjectController::class, 'getAllDepartments']);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::post('/showAppointments',[ProjectController::class, 'showAppointments'])->name('showAppointments');

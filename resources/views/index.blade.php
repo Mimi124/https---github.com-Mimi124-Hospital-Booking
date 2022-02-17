@@ -7,13 +7,17 @@
         @foreach($departments as $department)
         <div class="col-lg-4 col-md4 col-sm-12 text-center
          mb-3">
-         <img src ="{{$department->image}}" style="width:200px"/>
          <div class="card" style="width: 18rem;">
-            <img/>
+            <img src ="{{$department->image}}" style="width:200px: margin:0 auto"/>
             <div class="card-body">
                 <div class="card-title">{{ $department->name }}</div>
                 <div class="card-text">{{ $department->description }}</div>
         
+                <form method="POST" action="{{ route('showAppointments')}}" class="mt-3">
+                   @csrf
+                    <input type="text" value="{{ $department->id}}" style="display: none;"/>
+                    <input type="submit" value="show appointments" class="btn btn-primary"/>
+                </form>
         </div>
     </div>
 </div>
