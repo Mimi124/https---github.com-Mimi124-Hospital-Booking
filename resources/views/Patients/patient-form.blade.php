@@ -95,14 +95,14 @@
                     <option value="3">Subject 2</option>
                     <option value="4">Subject 3</option>
                   </select>
-              
-                <div>
-                <label class="form-label" for="customFile">Default file input example</label>
-                  <input type="file" class="form-control" id="customFile" />
-                </div>  
                 </div>
-              </div>
-
+              <div>
+                
+                <div>
+                  <label class="form-label" for="image">Upload Image</label>
+                  <input type="file" class="form-control" id="filename" name="image"/>
+                </div>  
+              
               <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" type="submit" value="Book" />
               </div>
