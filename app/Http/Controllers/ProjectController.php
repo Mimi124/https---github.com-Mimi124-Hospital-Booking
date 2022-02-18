@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use App\Models\Department;
 use App\Models\Appointment;
 use App\Models\Booking;
@@ -82,6 +83,14 @@ class ProjectController extends Controller
         Session::flash('message', 'Appointment cancelled Successfully');
           Session::flash('message', 'alert-class','alert-success');
         return redirect('/');
+    }
+
+        public function showAllPatients(Request $request) {
+          $patients = Patient::all();
+          $patient_id = $request->input('patient_id');        
+          return view('patients',['patients' => $patients])
+                 ->with('patients.list');
+    
 
     }
 
