@@ -18,7 +18,7 @@ class Patient extends Model
                 return $next($request);
             }
         }
-        redirect('home');
+        redirect('/');
     }
 
     use HasFactory;
